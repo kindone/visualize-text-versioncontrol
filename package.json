@@ -1,0 +1,23 @@
+{
+  "name": "thoughtlogger_client",
+  "version": "0.1.0",
+  "description": "Thought Logger",
+  "main": "index.js",
+  "repository": "github.com/kindone/thoughtlogger",
+  "author": "Won-Wook Hong",
+  "license": "MIT",
+  "dependencies": {
+    "@types/react": "^16.4.13",
+    "@types/react-dom": "^16.0.7",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
+    "webpack": "^4.17.2"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^5.2.1",
+    "source-map-loader": "^0.2.4",
+    "typescript": "^3.0.3",
+    "webpack-cli": "^3.1.0",
+    "webpack-command": "^0.4.1"
+  }
+}
