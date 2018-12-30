@@ -1,13 +1,13 @@
 {
-  "name": "thoughtlogger_client",
+  "name": "untitled",
   "version": "0.1.0",
-  "description": "Thought Logger",
+  "description": "untitled",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open",
     "build": "webpack"
   },
-  "repository": "github.com/kindone/thoughtlogger",
+  "repository": "github.com/kindone/typescript_react_webpack_sandbox",
   "author": "Won-Wook Hong",
   "license": "MIT",
   "dependencies": {
