@@ -1,22 +1,26 @@
 import * as React from "react"
 import * as ReactDOM from "react-dom"
+import { AppContainer } from 'react-hot-loader'
 //import 'semantic-ui-css/semantic.min.css' // need loaders to work
-import { Container } from 'semantic-ui-react'
+import Root from "./Root"
 
 
 ReactDOM.render(
-    <Container><p>
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-    Aenean massa strong. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
-    ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
-    consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-    In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede
-    link mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean
-    vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac,
-    enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla
-    ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.
-    Curabitur ullamcorper ultricies nisi.
-  </p></Container>
+    <AppContainer>
+        <Root/>
+    </AppContainer>
     ,
-    document.getElementById("example")
+    document.getElementById("root")
 );
+
+if ((module as any).hot) {
+    (module as any).hot.accept('./Root', () => {
+        const NextRoot = require('./Root').default
+        ReactDOM.render(
+            <AppContainer>
+                <NextRoot/>
+            </AppContainer>,
+            document.getElementById('root')
+        )
+    })
+}

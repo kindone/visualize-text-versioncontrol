@@ -12,7 +12,8 @@ module.exports = {
 
     devServer: {
         contentBase: './',
-        hot: true
+        hot: true,
+        inline: true
     },
 
     plugins: [

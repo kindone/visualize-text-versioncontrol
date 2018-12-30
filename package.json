@@ -4,8 +4,9 @@
   "description": "Text-VersionControl helper",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open",
-    "build": "webpack"
+    "start": "webpack-dev-server --mode development --progress --color --open --hot",
+    "build": "webpack",
+    "watch" : "webpack --config webpack.config.js --watch"
   },
   "repository": "github.com/kindone/",
   "author": "Won-Wook Hong",
@@ -16,6 +17,7 @@
     "css-loader": "^2.1.0",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
+    "react-hot-loader": "^4.6.3",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.84.0",
     "text-versioncontrol": "^0.7.0",
