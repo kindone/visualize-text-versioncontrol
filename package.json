@@ -1,20 +1,25 @@
 {
-  "name": "untitled",
+  "name": "visualize-text-versioncontrol",
   "version": "0.1.0",
-  "description": "untitled",
+  "description": "Text-VersionControl helper",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open",
     "build": "webpack"
   },
-  "repository": "github.com/kindone/typescript_react_webpack_sandbox",
+  "repository": "github.com/kindone/",
   "author": "Won-Wook Hong",
   "license": "MIT",
   "dependencies": {
     "@types/react": "^16.4.13",
     "@types/react-dom": "^16.0.7",
+    "css-loader": "^2.1.0",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.84.0",
+    "text-versioncontrol": "^0.7.0",
+    "typings-for-css-modules-loader": "^1.7.0",
     "webpack": "^4.17.2"
   },
   "devDependencies": {
