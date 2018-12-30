@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "Thought Logger",
   "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --open",
+    "build": "webpack"
+  },
   "repository": "github.com/kindone/thoughtlogger",
   "author": "Won-Wook Hong",
   "license": "MIT",
@@ -18,6 +22,7 @@
     "source-map-loader": "^0.2.4",
     "typescript": "^3.0.3",
     "webpack-cli": "^3.1.0",
-    "webpack-command": "^0.4.1"
+    "webpack-command": "^0.4.1",
+    "webpack-dev-server": "^3.1.8"
   }
 }
