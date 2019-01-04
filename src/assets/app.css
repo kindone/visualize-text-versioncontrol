@@ -1,0 +1,11 @@
+.op-insert {
+    color:red
+}
+
+.op-delete {
+    text-decoration:line-through
+}
+
+.op-insert {
+    color:gray
+}

@@ -1,17 +1,20 @@
 {
     "compilerOptions": {
+        "baseUrl": "src",
         "outDir": "./dist/",
         "sourceMap": true,
         "noImplicitAny": true,
         "moduleResolution" : "node",
         "module": "es2015",
         "target": "es5",
+        "esModuleInterop": true,
         "lib": [
             "dom",
             "es6",
             "dom.iterable",
             "scripthost"
-         ],
+        ],
+	"types": [ "node" ],
         "jsx": "react"
     },
     "include": [

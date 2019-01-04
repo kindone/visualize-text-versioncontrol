@@ -6,12 +6,13 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --progress --color --open --hot",
     "build": "webpack",
-    "watch" : "webpack --config webpack.config.js --watch"
+    "watch": "webpack --mode development --config webpack.config.js --watch"
   },
   "repository": "github.com/kindone/",
   "author": "Won-Wook Hong",
   "license": "MIT",
   "dependencies": {
+    "@types/node": "^10.12.18",
     "@types/react": "^16.4.13",
     "@types/react-dom": "^16.0.7",
     "css-loader": "^2.1.0",
@@ -20,7 +21,7 @@
     "react-hot-loader": "^4.6.3",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.84.0",
-    "text-versioncontrol": "^0.7.0",
+    "text-versioncontrol": "^0.7.5",
     "typings-for-css-modules-loader": "^1.7.0",
     "webpack": "^4.17.2"
   },

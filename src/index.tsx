@@ -2,6 +2,7 @@ import * as React from "react"
 import * as ReactDOM from "react-dom"
 import { AppContainer } from 'react-hot-loader'
 //import 'semantic-ui-css/semantic.min.css' // need loaders to work
+// import './assets/app.css'
 import Root from "./Root"
 
 
