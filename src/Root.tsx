@@ -34,8 +34,8 @@ export default function Root() {
 
     const doc2ChangesAfter = [
         new Delta([{ delete: 4 }, { insert: 'Actual' }]),
-        new Delta([{ retain: 10 }, { insert: 'tty' }, { delete: 5 }]), // Actual pre|tty|cious
-        new Delta([{ retain: 10 }, { insert: 'ttier' }, { delete: 3 }]),
+        new Delta([{ retain: 11 }, { insert: 'tty' }, { delete: 5 }]), // Actual pre|tty|cious
+        new Delta([{ retain: 11 }, { insert: 'ttier' }, { delete: 3 }]),
     ]
 
     doc1.append(doc1ChangesAfter)
@@ -46,7 +46,10 @@ export default function Root() {
     while (source.rev < doc1.getCurrentRev()) {
         const sync = doc1.getSingleSyncSinceExcerpted(source)
         target = doc2.syncExcerpt(sync, target)
-        source = doc1.takeExcerptAt(sync.rev, sync.range.start, sync.range.end)
+        source = doc1.takeExcerptAt(
+            sync.rev,
+            sync.ranges[sync.ranges.length-1].start,
+            sync.ranges[sync.ranges.length-1].end)
     }
 
     const documentSet = new DocumentSet([doc1, doc2])

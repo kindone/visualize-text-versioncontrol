@@ -71,7 +71,7 @@ export default class DocumentSetComponent extends React.Component<IDocumentSetCo
             ss.applyChange(change, "_")
             content = ss.toDelta()
 
-            const contentRow = this.contentRowElement(rev, content)
+            const contentRow = this.contentRowElement(rev++, content)
             elements.push(contentRow)
         }
 
@@ -145,7 +145,7 @@ export default class DocumentSetComponent extends React.Component<IDocumentSetCo
                     elements.push(initial(obj.value))
                 }
                 else if(obj.value.type === 'embed') {
-                    elements.push(initialObj(obj.value.value))
+                    elements.push(initialObj(JSONStringify(obj.value.value)))
                 }
             }
             else if(obj.type === 'inserted') {
@@ -153,7 +153,7 @@ export default class DocumentSetComponent extends React.Component<IDocumentSetCo
                     elements.push(insert(obj.value))
                 }
                 else if(obj.value.type === 'embed') {
-                    elements.push(insertObj(obj.value.value))
+                    elements.push(insertObj(JSONStringify(obj.value.value)))
                 }
             }
             else if(obj.type === 'deleted') {
@@ -161,7 +161,7 @@ export default class DocumentSetComponent extends React.Component<IDocumentSetCo
                     elements.push(del(obj.value))
                 }
                 else if(obj.value.type === 'embed') {
-                    elements.push(del(obj.value.value))
+                    elements.push(del(JSONStringify(obj.value.value)))
                 }
             }
         }
