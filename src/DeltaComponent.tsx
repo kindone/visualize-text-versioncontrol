@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {IDelta, JSONStringify} from 'text-versioncontrol'
+import {IDelta, JSONStringify, Change} from 'text-versioncontrol'
 
 interface IDeltaComponentProps {
     delta:IDelta
@@ -20,7 +20,7 @@ export default class DeltaComponent extends React.Component<IDeltaComponentProps
         return (<span>{this.deltaToHtml(this.props.delta)}</span>)
     }
 
-    private deltaToHtml(delta:IDelta) {
+    private deltaToHtml(delta:Change) {
 
         const fill = (character:string, size:number) => {
             let filled = ''
@@ -55,10 +55,10 @@ export default class DeltaComponent extends React.Component<IDeltaComponentProps
             elements.push(<span key={i++}>{element}</span>)
         }
         if(delta.source) {
-            if(delta.source.type === 'content')
-                elements.push(<p key={'sync' + (i++)}>Excerpt: {JSONStringify(delta.source)}</p>)
-            else if(delta.source.type === 'change')
-                elements.push(<p key={'source' + (i++)}>Sync: {JSONStringify(delta.source)}</p>)
+            if(delta.source.type === 'excerpt')
+                elements.push(<p key={'excerpt' + (i++)}>Excerpt: {JSONStringify(delta.source)}</p>)
+            else if(delta.source.type === 'sync')
+                elements.push(<p key={'sync' + (i++)}>Sync: {JSONStringify(delta.source)}</p>)
         }
 
         return elements

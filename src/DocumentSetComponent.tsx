@@ -1,12 +1,12 @@
 import * as React from 'react'
-import {IDelta, SharedString, Document, JSONStringify, Delta} from 'text-versioncontrol'
+import {IDelta, SharedString, Document, JSONStringify, Delta, Change} from 'text-versioncontrol'
 import DeltaComponent from './DeltaComponent';
 import { Label, Grid, Popup, Tab } from 'semantic-ui-react';
 import ContentChangeComponent from './ContentChangeComponent';
 import ContentComponent from './ContentComponent';
 import { DocumentSet } from './DocumentSet';
-import { Source } from 'text-versioncontrol/lib/primitive/IDelta';
-import { Range } from 'text-versioncontrol/lib/primitive/Range';
+import { Range } from 'text-versioncontrol';
+import { Source } from 'text-versioncontrol/lib/primitive/Change';
 
 interface IDocumentSetComponentProps {
     documentSet:DocumentSet
@@ -100,7 +100,7 @@ export default class DocumentSetComponent extends React.Component<IDocumentSetCo
         return contentRow
     }
 
-    private contentElement(idx:number, content:IDelta) {
+    private contentElement(idx:number, content:Change) {
         // TODO display excerpts so far
         return (<div key={idx}>
                     <Label>
@@ -109,7 +109,7 @@ export default class DocumentSetComponent extends React.Component<IDocumentSetCo
                 </div>)
     }
 
-    private deltaElement(idx:number, content:IDelta, delta:IDelta, docSet:DocumentSet, range?:Range) {
+    private deltaElement(idx:number, content:Change, delta:Change, docSet:DocumentSet, range?:Range) {
 
         const fill = (character:string, size:number) => {
             let filled = ''
@@ -169,10 +169,10 @@ export default class DocumentSetComponent extends React.Component<IDocumentSetCo
         let i = 0
         if(delta.source) {
             let stringElement:JSX.Element = <p></p>
-            if(delta.source.type === 'content') {
-                stringElement = <p key={'content' + (i++)}>Excerpt: {JSONStringify(delta.source)}</p>
+            if(delta.source.type === 'excerpt') {
+                stringElement = <p key={'excerpt' + (i++)}>Excerpt: {JSONStringify(delta.source)}</p>
             }
-            else if(delta.source.type === 'change') {
+            else if(delta.source.type === 'sync') {
                 stringElement = <p key={'sync' + (i++)}>Sync: {JSONStringify(delta.source)}</p>
             }
 

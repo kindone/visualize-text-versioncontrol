@@ -21,7 +21,7 @@
     "react-hot-loader": "^4.6.3",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.84.0",
-    "text-versioncontrol": "^0.7.9",
+    "text-versioncontrol": "^0.8.2",
     "typings-for-css-modules-loader": "^1.7.0",
     "webpack": "^4.17.2"
   },

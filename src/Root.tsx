@@ -23,7 +23,7 @@ export default function Root() {
     doc2.append(doc2Changes)
 
     const source1 = doc1.takeExcerpt(5, 14) // 'precious '
-    const target1 = doc2.pasteExcerpt(5, source1) // Some precious introduction here: ...'
+    const excerpt1 = doc2.pasteExcerpt(5, source1) // Some precious introduction here: ...'
 
     const doc1ChangesAfter = [
         new Delta([{ insert: "No, It's " }, { delete: 4 }, { insert: 'Our' }]), // +8, No, it's Our
@@ -42,15 +42,10 @@ export default function Root() {
     doc2.append(doc2ChangesAfter)
 
     let source = source1
-    let target = target1
-    while (source.rev < doc1.getCurrentRev()) {
-        const sync = doc1.getSingleSyncSinceExcerpted(source)
-        target = doc2.syncExcerpt(sync, target)
-        source = doc1.takeExcerptAt(
-            sync.rev,
-            sync.ranges[sync.ranges.length-1].start,
-            sync.ranges[sync.ranges.length-1].end)
-    }
+    let target = excerpt1.target
+
+    const syncs = doc1.getSyncSinceExcerpted(source)
+    target = doc2.syncExcerpt(syncs, target)
 
     const documentSet = new DocumentSet([doc1, doc2])
     return (
